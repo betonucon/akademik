@@ -162,8 +162,8 @@ Route::group(['middleware'    => 'auth'],function(){
     Route::get('/pembayaran_donasi/{aksi?}/{id?}', 'PembayaranController@index_donasi');
     Route::get('/tambah/pembayaran', 'PembayaranController@tambah');
     Route::get('/ubah/pembayaran/{id}', 'PembayaranController@ubah');
-    Route::get('/cari_nik/pembayaran/{id}', 'PembayaranController@cari_nik');
-    Route::get('/cari_nik_spp/pembayaran_spp/{id}', 'PembayaranController@cari_nik_spp');
+    Route::get('/cari_nik/pembayaran/{id}/{tahun_ajaran}', 'PembayaranController@cari_nik');
+    Route::get('/cari_nik_spp/pembayaran_spp/{id}/{tahun}', 'PembayaranController@cari_nik_spp');
     Route::get('/hapus/pembayaran/{id}', 'PembayaranController@hapus');
     Route::get('/hapus_spp/pembayaran_spp/{id}', 'PembayaranController@hapus_spp');
     Route::get('/hapus_donasi/pembayaran_donasi/{id}', 'PembayaranController@hapus_donasi');

@@ -361,8 +361,8 @@ class PembayaranController extends Controller
         
     }
 
-    public function cari_nik($id){
-        $data=Kelassiswa::where('siswa_id',$id)->orderBy('id','desc')->firstOrFail();
+    public function cari_nik($id,$tahun_ajaran){
+        $data=Kelassiswa::where('siswa_id',$id)->where('tahun_ajaran',$tahun_ajaran)->orderBy('id','desc')->firstOrFail();
 
         echo $data['kelas'].'_'.$data['tahun_ajaran'].'@';
         $rinci=Detaildaftarulang::where('kelas',$data['kelas'])->where('tahun_ajaran',$data['tahun_ajaran'])->get();
@@ -399,8 +399,8 @@ class PembayaranController extends Controller
         }
     }
 
-    public function cari_nik_spp($id){
-        $data=Kelassiswa::where('siswa_id',$id)->orderBy('id','desc')->firstOrFail();
+    public function cari_nik_spp($id,$tahun_ajaran){
+        $data=Kelassiswa::where('siswa_id',$id)->where('tahun_ajaran',$tahun_ajaran)->orderBy('id','desc')->firstOrFail();
 
         echo $data['kelas'].'_'.$data['tahun_ajaran'].'@';
         

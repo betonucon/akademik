@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tahun Ajaran</label>
-                                    <select class="form-control select2 select2-hidden-accessible" onchange="cari_siswa(this.value)" name="tahun_ajaran" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
+                                    <select class="form-control select2 select2-hidden-accessible" onchange="cari_siswa(this.value)" name="tahun_ajaran"  id="tahun_ajaran" style="width: 100%;" data-select2-id="2" tabindex="-1" aria-hidden="true">
                                         <option value="">Pilih</option>
                                         @foreach(get_tahun_ajaran() as $get_tahun_ajaran)
                                             <option value="{{$get_tahun_ajaran['name']}}">{{$get_tahun_ajaran['name']}}</option>
@@ -522,11 +522,11 @@
         });
 
         function cari_kode(a){
-            // var nik=$('#nik').val();
+            var tahun_ajaran=$('#tahun_ajaran').val();
             
             $.ajax({
                 type: 'GET',
-                url: "{{url('/cari_nik_spp/'.$link)}}/"+a,
+                url: "{{url('/cari_nik_spp/'.$link)}}/"+a+"/"+tahun_ajaran,
                 data: "id="+a,
                 success: function(msg){
                     var tam = msg.split("@");
